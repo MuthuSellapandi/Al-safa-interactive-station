@@ -1,0 +1,321 @@
+{
+   "title" : "Section Data",
+
+
+   "301.01" :
+   [
+     {
+       "title" : "Preferred Parking",
+       "Info" : "For all new buildings, other than villas, that have more
+than 20 parking spaces, designated preferred parking
+must be provided for a combination of low-emitting,
+fuel-efficient and carpool vehicles for required percentage
+of the total vehicle parking spaces required for the
+building by Dubai Municipality (DM) Building Regulations.
+In addition addition to the People of Determination parkings.
+The requiredpercentages are:
+- 5 % for Silver Sa'fa
+- 7% for Golden Sa'fa
+- 10% for Platinum Sa'fa"
+     }
+   ],
+
+   "301.02" :
+   [
+     {
+       "title" : "Enabled Access",
+       "Info" : "All new buildings, other than villas, must comply with
+Dubai Municipality Building Regulations, with regards todisabled users. 
+They must be enabled in their access, internal movement and ability to 
+engage with the building functions."
+     }
+   ],
+
+   "301.03" :
+   [
+     {
+       "title" : "Bicycle Storage",
+       "Info" : "For all new buildings, other than villas, secure and covered
+racks or storage areas for bicycles must be provided within
+the building or within a shaded area located in the ground floor
+and no more than thirty (30) metres from a building entrance
+within the plot limit. Secure racks or storage areas must be
+provided for a number of bicycles equal to at least ten percent
+(10%) of the number of car parking spaces required for the
+building as per the Dubai Municipality (DM) Building Regulations,.
+For Student accommodation and Labor accommodation,
+secure racks or storage areas must be provided for
+bicycles for at least (5%) of building occupants with the same
+above conditions."
+     }
+   ],
+   
+   "301.04" :
+   [
+     {
+       "title" : "Equipments of Hybrid Vehicles and
+Charging Equipments of Electrical Vehicles",
+       "Info" : "For all new buildings, other than villas, must provide
+equipments of hybrid vehicles and enough quantity of
+charging equipments for electrical within the preferred
+parking."
+     }
+   ],
+
+   "302.01" :
+   [
+     {
+       "title" : "Local Species",
+       "Info" : "For all new buildings, a minimum of twenty five percent
+(25%) of the total planted area withinthe building plot,
+including green roofs, must utilise plant and tree
+species indigenous oradapted to Dubai's climate and
+region.
+For all new villas at least one palm tree must be
+planted."
+     }
+   ],
+
+    "303.01" :
+   [
+     {
+       "title" : "Exterior Light Pollution and Controls",
+       "Info" : "For all new buildings, permanently installed exterior lighting must comply with the
+following:
+1. All exterior light fixtures on the building site, other than architectural accent lightingand
+Civil Aviation safety lighting, must be shielded so that all of the light emitted by
+thefixture, either directly or indirectly by reflection or refraction from any part of the
+fixture,is projected below the horizontal plane passing through the lowest part of the
+fixture;
+2. Architectural accent lighting must be aimed or shielded to prevent the lighting of
+thenight sky. Wall washing lights must spill no more than 10% of the lighting past
+thebuilding facade;
+3. Downward directed lighting must be used for lighting of signage; and
+4. All exterior lighting must be fitted with automatic controls to ensure that lights do
+notoperate during daylight hours."
+     }
+   ],
+
+   "303.01 A" :
+   [
+     {
+       "title" : "Exterior Light Pollution and Controls",
+       "Info" : "For all new buildings, permanently installed exterior lighting must comply with the
+following:
+1. All exterior light fixtures on the building site, other than architectural accent lightingand
+Civil Aviation safety lighting, must be shielded so that all of the light emitted by
+thefixture, either directly or indirectly by reflection or refraction from any part of the
+fixture,is projected below the horizontal plane passing through the lowest part of the
+fixture;
+2. Architectural accent lighting must be aimed or shielded to prevent the lighting of
+thenight sky. Wall washing lights must spill no more than 10% of the lighting past
+thebuilding facade;
+3. Downward directed lighting must be used for lighting of signage; and
+4. All exterior lighting must be fitted with automatic controls to ensure that lights do
+notoperate during daylight hours."
+     }
+   ],
+
+   "303.01 B" :
+   [
+     {
+       "title" : "Exterior Light Pollution and Controls",
+       "Info" : "For all new buildings, permanently installed exterior lighting must comply with the
+following:
+1. All exterior light fixtures on the building site, other than architectural accent lightingand
+Civil Aviation safety lighting, must be shielded so that all of the light emitted by
+thefixture, either directly or indirectly by reflection or refraction from any part of the
+fixture,is projected below the horizontal plane passing through the lowest part of the
+fixture;
+2. Architectural accent lighting must be aimed or shielded to prevent the lighting of
+thenight sky. Wall washing lights must spill no more than 10% of the lighting past
+thebuilding facade;
+3. Downward directed lighting must be used for lighting of signage; and
+4. All exterior lighting must be fitted with automatic controls to ensure that lights do
+notoperate during daylight hours."
+     }
+   ],
+
+   "303.01 C" :
+   [
+     {
+       "title" : "Exterior Light Pollution and Controls",
+       "Info" : "For all new buildings, permanently installed exterior lighting must comply with the
+following:
+1. All exterior light fixtures on the building site, other than architectural accent lightingand
+Civil Aviation safety lighting, must be shielded so that all of the light emitted by
+thefixture, either directly or indirectly by reflection or refraction from any part of the
+fixture,is projected below the horizontal plane passing through the lowest part of the
+fixture;
+2. Architectural accent lighting must be aimed or shielded to prevent the lighting of
+thenight sky. Wall washing lights must spill no more than 10% of the lighting past
+thebuilding facade;
+3. Downward directed lighting must be used for lighting of signage; and
+4. All exterior lighting must be fitted with automatic controls to ensure that lights do
+notoperate during daylight hours."
+     }
+   ],
+
+   "304.01 A" :
+   [
+     {
+       "title" : "Urban Heat Island Effect",
+       "Info" : "Type: Steep Sloped Roofs 
+For all new buildings:
+All opaque external roofing surfaces must comply with
+a minimum Roof Solar Reflective
+Index (SRI) value according to Table 304.01(1) for a
+minimum of seventy five percent (75%)
+of the roof area:"
+     }
+   ],
+
+   "304.01 B" :
+   [
+     {
+       "title" : "Urban Heat Island Effect",
+       "Info" : "Type: Flat and Low Sloped Roofs
+For all new buildings:
+All opaque external roofing surfaces must comply with
+a minimum Roof Solar Reflective
+Index (SRI) value according to Table 304.01(1) for a
+minimum of seventy five percent (75%)
+of the roof area:"
+     }
+   ],
+
+   "304.02" :
+   [
+     {
+       "title" : "Heat Rejection Equipment Installation",
+       "Info" : "Individual heat rejection equipment, with a power rating
+greater than 4.0 kilowatt (kW), andwhich exhausts
+externally, must be installed not less than 3.0 meters
+above the ground levelof the building."
+     }
+   ],
+
+   "304.03" :
+   [
+     {
+       "title" : "Green Roofs",
+       "Info" : "For all new buildings, the roof of the building should be
+provided with vegetated roof (green roof) for at least thirty
+percent (30%) of the total roof area, if sufficient roof area
+30%
+is available for any surface area of more than 150 m2.
+The services should be distributed on each surface so
+that the space is optimized."
+     }
+   ],
+
+   "304.04 A" :
+   [
+     {
+       "title" : "Colours on the Outside of Buildings",
+       "Info" : "For all new buildings, at least seventy five percent (75%)
+of the area of externally painted walls must have a
+minimum Light Reflective Value of forty-five percent
+(45%)."
+     }
+   ],
+
+   "304.04 B" :
+   [
+     {
+       "title" : "Colours on the Outside of Buildings",
+       "Info" : "For all new buildings, at least seventy five percent (75%)
+of the area of externally painted walls must have a
+minimum Light Reflective Value of forty-five percent
+(45%)."
+     }
+   ],
+
+   "304.04 C" :
+   [
+     {
+       "title" : "Colours on the Outside of Buildings",
+       "Info" : "For all new buildings, at least seventy five percent (75%)
+of the area of externally painted walls must have a
+minimum Light Reflective Value of forty-five percent
+(45%)."
+     }
+   ],
+
+   "304.05" :
+   [
+     {
+       "title" : "Orientation of Glazed Façades",
+       "Info" : "For new buildings, other than villas and industrial buildings, In
+Silver Sa’fa, one of the following must be achieved, while in case
+1. At least fifty percent (50%) of the total glazed surface area of
+the building, (excluding glazed areas with back insulated panels),
+must be facing the angle located between the east and the
+north-west which equals to 135 degree starting from the east.
+2. South and west glazed areas, excluding glazed areas with
+back insulated panels, must be treated environmentally."
+     }
+   ],
+
+   "304.06" :
+   [
+     {
+       "title" : "Hardscape",
+       "Info" : "For all new buildings, fifty percent (50%) of the hardscape of the
+development must:
+1. Demonstrate a Solar Reflective Index (SRI) of at least twenty
+nine (29), or
+2. Use an open grid pavement system, or
+3. Be shaded by vegetation or
+4. Be shaded by materials with an SRI equal to or greater than
+those specified in Table304.01 (1), or
+5. A combination of the above."
+     }
+   ],
+
+   "304.07" :
+   [
+     {
+       "title" : "Shading of Public Access Areas",
+       "Info" : "For all new buildings, other than villas, all pedestrian linkages
+within the plot area must be shaded using materials with a Solar
+Reflectance Index (SRI) equal to or greater than those specified
+in Table 304.01 (1)."
+     }
+   ],
+
+   "305.01" :
+   [
+     {
+       "title" : "Environmental Impact Assessment",
+       "Info" : "For all new buildings, an Environmental Impact Assessment (EIA) and/or
+a Construction Environmental Management Plan (CEMP) is required to
+be submitted to Environment Department of Dubai Municipality and
+obtain approval, if one of the following criteria is applicable:
+1- If the building is intended as industrial building
+2- If the building has the potential to generate hazardous or toxic
+wastes such laboratories, waste recycling or waste treatment.
+The Dubai Municipality Environment Department's relevant Technical
+Guidelines for the Environmental Impact Assessment Procedure must
+be followed."
+     }
+   ],
+
+   "305.01" :
+   [
+     {
+       "title" : "Environmental Impact Assessment",
+       "Info" : "For all new buildings, an Environmental Impact Assessment (EIA) and/or
+a Construction Environmental Management Plan (CEMP) is required to
+be submitted to Environment Department of Dubai Municipality and
+obtain approval, if one of the following criteria is applicable:
+1- If the building is intended as industrial building
+2- If the building has the potential to generate hazardous or toxic
+wastes such laboratories, waste recycling or waste treatment.
+The Dubai Municipality Environment Department's relevant Technical
+Guidelines for the Environmental Impact Assessment Procedure must
+be followed."
+     }
+   ]
+
+ }
