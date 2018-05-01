@@ -61,7 +61,7 @@ namespace controller
                     break;
 
                 default:
-                    OnRotate(Random.Range(10, 20), Random.Range(10, 20), Random.Range(10, 20), Random.Range(10, 20), Random.Range(10, 20));
+                    OnRotate(Random.Range(10, 10), Random.Range(10, 20), Random.Range(10, 20), Random.Range(10, 20), Random.Range(10, 20));
                     break;
             }
         }

@@ -115,11 +115,11 @@ namespace controller
 
             try
             {
-                GameObject.Find("Drag_OBJ_Holder/Scroll View/Viewport/Content/colorsListParent").transform.Find(RemoveSection_btn).GetComponent<Button>().interactable = true;
+                GameObject.Find("Drag_OBJ_Holder/Scroll View/Viewport/Content/parent 0/colorsListParent").transform.Find(RemoveSection_btn).GetComponent<Button>().interactable = true;
             }
             catch
             {
-                GameObject.Find("Drag_OBJ_Holder/Scroll View/Viewport/Content").transform.Find(RemoveSection_btn).GetComponent<Button>().interactable = true;
+                GameObject.Find("Drag_OBJ_Holder/Scroll View/Viewport/Content").transform.GetChild(SectionController.i).transform.Find(RemoveSection_btn).GetComponent<Button>().interactable = true;
             }
 
 

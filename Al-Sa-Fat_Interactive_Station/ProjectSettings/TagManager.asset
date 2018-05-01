@@ -10,6 +10,8 @@ TagManager:
   - mainHome
   - Color
   - ColorListObjsBtn
+  - Buttons_Section_Catagory
+  - PollutionListObjsBtn
   layers:
   - Default
   - TransparentFX

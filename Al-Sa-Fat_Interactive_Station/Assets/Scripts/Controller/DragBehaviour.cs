@@ -16,8 +16,10 @@ namespace controller
     {
         #region GameObject
 
+        //Need to load a game object dynamically from Resources foler/Asset bundle
         [Tooltip("The obj which going to Instantiate while click and drag to scene")]
-        public Sprite[] sections_Sprite, ColorsOptionsList_Sprite; //Need to load a game object dynamically from Resources foler/Asset bundle
+        public Sprite[] sections_301_Sprite, sections_401_Sprite, sections_501_Sprite, sections_601_Sprite, sections_701_Sprite, 
+                        ColorsOptionsList_Sprite, PollutionOptionList_Sprite;                                                                           
 
         public GameObject sections_btn;
 
@@ -27,9 +29,12 @@ namespace controller
 
         public GameObject triggerEvent_Holder_obj;
 
-        GameObject colorParent, colorsListParent;
+        GameObject SubSectionParent, colorsListParent, 
+                                PollutionListParent ;
 
-        GameObject sectionBtn, ColorOptionsBtn;
+        GameObject sectionBtn, SubSectionBtn;
+
+        GameObject[] parentobj;
 
         #endregion
 
@@ -41,13 +46,15 @@ namespace controller
         #region Strings
         public static string usedfacilityname;//Returnes the selected facility name in string
         private List<string> ColorButtonID = new List<string>{ "304.04" };
-
         private List<string> ColorListFromSprite = new List<string>();
+
+        private List<string> Exterior_InteriorPolutionButtonID = new List<string> { "303.01"};
+        private List<string> Exterior_InteriorPolution_ListFromSprite = new List<string>();
         #endregion
 
         #region bool
         public bool moved;
-        bool CanShowColorSection;
+        bool CanShowSubSection;
         #endregion
 
         #region inheritence
@@ -59,10 +66,9 @@ namespace controller
         #endregion
 
         #region Interger
-        int childIndex;
-        int colorbtnClickCount_int;
+        //int childIndex;
+        int colorbtnClickCount_int, pollutionbtnClickCount_int;
         #endregion
-
 
         /*..........................................................................Functions starts...................................................................................*/
 
@@ -78,29 +84,89 @@ namespace controller
         private void Intital()
         {
             appconf = new AppConfig();
-            DynamicPosForSections = new Vector3(0, 0, -1);
+            //DynamicPosForSections = new Vector3(0, 0, -1);
+
+            #region Load sprites from Resources folder
             ColorsOptionsList_Sprite = Resources.LoadAll<Sprite>("UV value sheet_1024x1024");
+            PollutionOptionList_Sprite = Resources.LoadAll<Sprite>("Section_3_pollution_SubSection");
+
+            #endregion
+
             for (int i = 0; i < ColorsOptionsList_Sprite.Length; i++)
             {
                 ColorListFromSprite.Add(ColorsOptionsList_Sprite[i].name);
             }
-            
+
+            for (int i = 0; i < PollutionOptionList_Sprite.Length; i++)
+            {
+                Exterior_InteriorPolution_ListFromSprite.Add(PollutionOptionList_Sprite[i].name);
+            }
+            Debug.Log("dfsdfsdfsdf " + Exterior_InteriorPolution_ListFromSprite.Count);
         }
         #endregion
 
         #region Createbutton - Where we dynamically create a button for sections from length of sprite slices - Execute from listerner
         public void Createbutton()//Createbutton
         {
-            sections_Sprite = Resources.LoadAll<Sprite>("Section 300 sheet 4096x4096");
 
-            for (int i = 0; i < sections_Sprite.Length; i++)
+            sections_301_Sprite = Resources.LoadAll<Sprite>("Section_3_Sprite");
+            sections_401_Sprite = Resources.LoadAll<Sprite>("401 ilustrations 2048x2048");
+            sections_501_Sprite = Resources.LoadAll<Sprite>("Section 300 sheet 4096x4096");
+            sections_601_Sprite = Resources.LoadAll<Sprite>("Section 300 sheet 4096x4096");
+            sections_701_Sprite = Resources.LoadAll<Sprite>("Section 300 sheet 4096x4096");
+
+            for(int i = 0; i < 5; i++ )
+            {
+                GameObject obj = new GameObject("parent " + i);
+                obj.transform.SetParent(GameObject.Find("Drag_OBJ_Holder/Scroll View/Viewport/Content").transform, false);
+                obj.transform.localPosition = new Vector3(2344f, -150f, 0);
+                obj.transform.tag = "Buttons_Section_Catagory";
+            }
+
+            parentobj = GameObject.FindGameObjectsWithTag("Buttons_Section_Catagory");
+
+
+            for (int i = 0; i < sections_301_Sprite.Length; i++)
             {
                 sectionBtn = Instantiate(sections_btn, new Vector3(-1750f + (i * 100), 109f, 0), Quaternion.identity);
-                sectionBtn.transform.SetParent(GameObject.Find("Drag_OBJ_Holder/Scroll View/Viewport/Content").transform, false);
-                sectionBtn.GetComponentInChildren<Text>().text = sections_Sprite[i].name;
-                sectionBtn.transform.Find("Image").GetComponent<Image>().overrideSprite = sections_Sprite[i];
-                sectionBtn.gameObject.name = sections_Sprite[i].name;
+                sectionBtn.transform.SetParent(GameObject.Find("Drag_OBJ_Holder/Scroll View/Viewport/Content/parent 0").transform, false);
+                sectionBtn.GetComponentInChildren<Text>().text = sections_301_Sprite[i].name;
+                sectionBtn.transform.Find("Image").GetComponent<Image>().overrideSprite = sections_301_Sprite[i];
+                sectionBtn.gameObject.name = sections_301_Sprite[i].name;
             }
+            for (int i = 0; i < sections_401_Sprite.Length; i++)
+            {
+                sectionBtn = Instantiate(sections_btn, new Vector3(-1750f + (i * 100), 109f, 0), Quaternion.identity);
+                sectionBtn.transform.SetParent(GameObject.Find("Drag_OBJ_Holder/Scroll View/Viewport/Content/parent 1").transform, false);
+                sectionBtn.GetComponentInChildren<Text>().text = sections_401_Sprite[i].name;
+                sectionBtn.transform.Find("Image").GetComponent<Image>().overrideSprite = sections_401_Sprite[i];
+                sectionBtn.gameObject.name = sections_401_Sprite[i].name;
+            }
+            for (int i = 0; i < sections_301_Sprite.Length; i++)
+            {
+                sectionBtn = Instantiate(sections_btn, new Vector3(-1750f + (i * 100), 109f, 0), Quaternion.identity);
+                sectionBtn.transform.SetParent(GameObject.Find("Drag_OBJ_Holder/Scroll View/Viewport/Content/parent 2").transform, false);
+                sectionBtn.GetComponentInChildren<Text>().text = sections_301_Sprite[i].name;
+                sectionBtn.transform.Find("Image").GetComponent<Image>().overrideSprite = sections_301_Sprite[i];
+                sectionBtn.gameObject.name = sections_301_Sprite[i].name;
+            }
+            for (int i = 0; i < sections_301_Sprite.Length; i++)
+            {
+                sectionBtn = Instantiate(sections_btn, new Vector3(-1750f + (i * 100), 109f, 0), Quaternion.identity);
+                sectionBtn.transform.SetParent(GameObject.Find("Drag_OBJ_Holder/Scroll View/Viewport/Content/parent 3").transform, false);
+                sectionBtn.GetComponentInChildren<Text>().text = sections_301_Sprite[i].name;
+                sectionBtn.transform.Find("Image").GetComponent<Image>().overrideSprite = sections_301_Sprite[i];
+                sectionBtn.gameObject.name = sections_301_Sprite[i].name;
+            }
+            for (int i = 0; i < sections_301_Sprite.Length; i++)
+            {
+                sectionBtn = Instantiate(sections_btn, new Vector3(-1750f + (i * 100), 109f, 0), Quaternion.identity);
+                sectionBtn.transform.SetParent(GameObject.Find("Drag_OBJ_Holder/Scroll View/Viewport/Content/parent 4").transform, false);
+                sectionBtn.GetComponentInChildren<Text>().text = sections_301_Sprite[i].name;
+                sectionBtn.transform.Find("Image").GetComponent<Image>().overrideSprite = sections_301_Sprite[i];
+                sectionBtn.gameObject.name = sections_301_Sprite[i].name;
+            }
+
 
         }
         #endregion
@@ -127,18 +193,32 @@ namespace controller
             GameObject[] popupHolderObj = GameObject.FindGameObjectsWithTag("popUp");
             foreach(GameObject go in popupHolderObj)
             {
-                Debug.Log("GameObject go in popupHolderObj ");
                 Destroy(go.gameObject);
             }
 
+            #region destroy a subSection popup 
             if (!ColorListFromSprite.Contains(usedfacilityname))
             {
-                GameObject ColorDragbtnHolder = GameObject.Find("colorsListParent");
-                if (ColorDragbtnHolder && !ColorButtonID.Contains(usedfacilityname))
+                Debug.Log("1");
+                GameObject DragHolder = GameObject.Find("colorsListParent");
+                if (DragHolder && !ColorButtonID.Contains(usedfacilityname))
                 {
-                    Destroy(ColorDragbtnHolder.gameObject);
+                    Debug.Log("2");
+                    Destroy(DragHolder.gameObject);
                 }
             }
+
+            if (!Exterior_InteriorPolution_ListFromSprite.Contains(usedfacilityname))
+            {
+                Debug.Log("3");
+                GameObject DragHolder = GameObject.Find("PollutionListParent");
+                if (DragHolder && !Exterior_InteriorPolutionButtonID.Contains(usedfacilityname))
+                {
+                    Debug.Log("4");
+                    Destroy(DragHolder.gameObject);
+                }
+            }
+            #endregion
 
             if (ColorButtonID.Contains(usedfacilityname))
             {
@@ -146,6 +226,13 @@ namespace controller
                 {
                     ShowColorOption();
                     colorbtnClickCount_int += 1;
+                }
+            }else if(Exterior_InteriorPolutionButtonID.Contains(usedfacilityname))
+            {
+                if(pollutionbtnClickCount_int == 0)
+                {
+                    ShowPollutionOption();
+                    pollutionbtnClickCount_int += 1; 
                 }
             }
             else
@@ -156,10 +243,37 @@ namespace controller
                 if (ColorListFromSprite.Contains(usedfacilityname))
                 {
                     clone.GetComponent<Image>().overrideSprite = ColorsOptionsList_Sprite[selectedSection];
-                    CanShowColorSection = true;
-                } else
+                    CanShowSubSection = true;
+                }else if(Exterior_InteriorPolution_ListFromSprite.Contains(usedfacilityname))
                 {
-                    clone.GetComponent<Image>().overrideSprite = sections_Sprite[selectedSection - 1];
+                    clone.GetComponent<Image>().overrideSprite = PollutionOptionList_Sprite[selectedSection];
+                    CanShowSubSection = true;
+                }
+                else
+                {
+                    //clone.GetComponent<Image>().overrideSprite = sections_301_Sprite[selectedSection];
+                    switch (SectionController.i)
+                    {
+                        case 1:
+                            clone.GetComponent<Image>().overrideSprite = sections_301_Sprite[selectedSection];
+                            break;
+
+                        case 2:
+                            clone.GetComponent<Image>().overrideSprite = sections_401_Sprite[selectedSection];
+                            break;
+
+                        case 3:
+                            clone.GetComponent<Image>().overrideSprite = sections_501_Sprite[selectedSection];
+                            break;
+
+                        case 4:
+                            clone.GetComponent<Image>().overrideSprite = sections_601_Sprite[selectedSection];
+                            break;
+
+                        case 5:
+                            clone.GetComponent<Image>().overrideSprite = sections_701_Sprite[selectedSection];
+                            break;
+                    }
                 }
                 clone.GetComponent<Image>().color = new Color32(255, 255, 255, 100);
                 clone.GetComponent<Image>().SetNativeSize();
@@ -195,19 +309,19 @@ namespace controller
 
         #region OnDragMove - Where instantiate object moves
         public void OnDragMove()
-        {        
-            if (CanShowColorSection)
+        {
+            if (CanShowSubSection)
             {
                 if (ColorButtonID.Contains(usedfacilityname))
                 {
-                    if (GameObject.Find("Drag_OBJ_Holder/Scroll View/Viewport/Content/colorsListParent").transform.Find(usedfacilityname).GetComponent<Button>().interactable)
+                    if (GameObject.Find("Drag_OBJ_Holder/Scroll View/Viewport/Content/parent 0/colorsListParent").transform.Find(usedfacilityname).GetComponent<Button>().interactable)
                     {                       
                         OnDragMoveController(usedfacilityname);
                     }
                 }
                 else if (ColorListFromSprite.Contains(usedfacilityname))
                 {
-                    if (GameObject.Find("Drag_OBJ_Holder/Scroll View/Viewport/Content/colorsListParent").transform.Find(usedfacilityname).GetComponent<Button>().interactable)
+                    if (GameObject.Find("Drag_OBJ_Holder/Scroll View/Viewport/Content/parent 0/colorsListParent").transform.Find(usedfacilityname).GetComponent<Button>().interactable)
                     {                      
                         OnDragMoveController(usedfacilityname);
                     }
@@ -215,7 +329,7 @@ namespace controller
             }
             else
             {               
-                if (GameObject.Find("Drag_OBJ_Holder/Scroll View/Viewport/Content").transform.Find(usedfacilityname).GetComponent<Button>().interactable)
+                if (GameObject.Find("Drag_OBJ_Holder/Scroll View/Viewport/Content").transform.GetChild(SectionController.i).transform.Find(usedfacilityname).GetComponent<Button>().interactable)
                 {                  
                    OnDragMoveController(usedfacilityname);
                 }
@@ -244,7 +358,14 @@ namespace controller
             //    Debug.Log("Overlaps");
             //}
 
-            // SetPostionForSections();
+            Debug.Log("clone position world " + clone.transform.position);
+            Debug.Log("clone position local " + clone.transform.localPosition);
+
+            if(clone.transform.localPosition.y > 20)
+            {
+                clone.transform.localPosition = new Vector3(clone.transform.localPosition.x, 40f, clone.transform.localPosition.z);
+            }
+
             clone.GetComponent<Image>().color = Color.white;
             clone.GetComponent<PopupViewModel>().enabled = true;
             moved = false;
@@ -272,22 +393,31 @@ namespace controller
             {
                 if (ColorListFromSprite.Contains(usedfacilityname))
                 {
-                    SetGroupByTag(usedfacilityname);
-                }              
+                    SetGroupByTag(usedfacilityname, "parent 0/colorsListParent");
+                }    
+                
+                if(Exterior_InteriorPolution_ListFromSprite.Contains(usedfacilityname))
+                {
+                    SetGroupByTag(usedfacilityname, "parent 0/PollutionListParent");
+                }
             }
             #endregion
-            if (!CanShowColorSection)
+            if (!CanShowSubSection)
             {
-                GameObject.Find("Drag_OBJ_Holder/Scroll View/Viewport/Content").transform.Find(usedfacilityname).GetComponent<Button>().interactable = false;
+                GameObject.Find("Drag_OBJ_Holder/Scroll View/Viewport/Content").transform.GetChild(SectionController.i).Find(usedfacilityname).GetComponent<Button>().interactable = false;
             }else
             {
-                GameObject.Find("Drag_OBJ_Holder/Scroll View/Viewport/Content/colorsListParent").transform.Find(usedfacilityname).GetComponent<Button>().interactable = false;
+                GameObject.Find("Drag_OBJ_Holder/Scroll View/Viewport/Content/parent 0/colorsListParent").transform.Find(usedfacilityname).GetComponent<Button>().interactable = false;
             }
-            foreach (string str in ColorButtonID)
+
+            if (SectionController.i == 1)
             {
-                GameObject.Find("Drag_OBJ_Holder/Scroll View/Viewport/Content").transform.Find(str).GetComponent<Button>().interactable = true;
+                foreach (string str in ColorButtonID)
+                {
+                    GameObject.Find("Drag_OBJ_Holder/Scroll View/Viewport/Content").transform.GetChild(SectionController.i).transform.Find(str).GetComponent<Button>().interactable = true;
+                }
             }
-            CanShowColorSection = false;
+            CanShowSubSection = false;
         }
 
         #endregion
@@ -297,35 +427,37 @@ namespace controller
         {
             if (GameObject.Find("Buildings_parent/buildingSub_Parents/colorObjects"))
             {
-                if (colorParent.transform.childCount <= 0)
+                if (SubSectionParent.transform.childCount <= 0)
                 {
-                    Destroy(colorParent);
+                    Destroy(SubSectionParent);
                 }
             }
         }
     #endregion
 
         #region assign a tag name
-        public void SetGroupByTag(string stg)
+        public void SetGroupByTag(string stg, string path)
         {
 
-            if(colorParent==null)
+            if(SubSectionParent==null)
             {
-                colorParent = new GameObject();
+                SubSectionParent = new GameObject();
             }
 
-            if (colorParent.transform.childCount > 0)
+
+            //continur here 
+            if (SubSectionParent.transform.childCount > 0)
             {
-                GameObject.Find("Drag_OBJ_Holder/Scroll View/Viewport/Content/colorsListParent").transform.Find(colorParent.transform.GetChild(0).gameObject.name).GetComponent<Button>().interactable = true;
-                Destroy(colorParent.transform.GetChild(0).gameObject);
+                GameObject.Find("Drag_OBJ_Holder/Scroll View/Viewport/Content/"+ path).transform.Find(SubSectionParent.transform.GetChild(0).gameObject.name).GetComponent<Button>().interactable = true;
+                Destroy(SubSectionParent.transform.GetChild(0).gameObject);
             }
 
-            colorParent.gameObject.name = "colorObjects";
-            colorParent.transform.parent = parent;
+            SubSectionParent.gameObject.name = "colorObjects";
+            SubSectionParent.transform.parent = parent;
 
             GameObject colorSectionObj = GameObject.Find("buildingSub_Parents/" + stg);
             colorSectionObj.tag = "Color";
-            colorSectionObj.transform.SetParent(colorParent.transform);
+            colorSectionObj.transform.SetParent(SubSectionParent.transform);
 
         }
         #endregion
@@ -333,7 +465,7 @@ namespace controller
         #region ShowColorOption
         public void ShowColorOption()
         {
-            Debug.Log("show color option");
+            Debug.Log("showcolor");
             ColorsOptionsList_Sprite = Resources.LoadAll<Sprite>("UV value sheet_1024x1024");
             float PosMultiplier = ColorsOptionsList_Sprite.Length ;
 
@@ -341,19 +473,20 @@ namespace controller
             {
                 colorsListParent = new GameObject();
                 colorsListParent.gameObject.name = "colorsListParent";
-                colorsListParent.transform.SetParent(GameObject.Find("Drag_OBJ_Holder/Scroll View/Viewport/Content/").transform, false);
-                GameObject parentObj = GameObject.Find("Drag_OBJ_Holder/Scroll View/Viewport/Content/" + usedfacilityname);
+                colorsListParent.transform.SetParent(GameObject.Find("Drag_OBJ_Holder/Scroll View/Viewport/Content/parent 0").transform, false);
+                GameObject parentObj = GameObject.Find("Drag_OBJ_Holder/Scroll View/Viewport/Content/parent 0/" + usedfacilityname);
+                Debug.Log(parentObj.transform.localPosition + "," + parentObj.transform.position) ;
                 colorsListParent.transform.localPosition = new Vector3(parentObj.transform.localPosition.x, parentObj.transform.localPosition.y, parentObj.transform.localPosition.z);
             }
 
             for (int i = 0; i < ColorsOptionsList_Sprite.Length; i++)
             {
-                ColorOptionsBtn = Instantiate(sections_btn, new Vector3(0, 90, 0), Quaternion.identity);
-                ColorOptionsBtn.transform.SetParent(GameObject.Find("Drag_OBJ_Holder/Scroll View/Viewport/Content/colorsListParent").transform, false);
-                ColorOptionsBtn.GetComponentInChildren<Text>().text = ColorsOptionsList_Sprite[i].name;
-                ColorOptionsBtn.transform.Find("Image").GetComponent<Image>().overrideSprite = ColorsOptionsList_Sprite[i];
-                ColorOptionsBtn.gameObject.name = ColorsOptionsList_Sprite[i].name;
-                ColorOptionsBtn.tag = "ColorListObjsBtn";
+                SubSectionBtn = Instantiate(sections_btn, new Vector3(0, 90, 0), Quaternion.identity);
+                SubSectionBtn.transform.SetParent(GameObject.Find("Drag_OBJ_Holder/Scroll View/Viewport/Content/parent 0/colorsListParent").transform, false);
+                SubSectionBtn.GetComponentInChildren<Text>().text = ColorsOptionsList_Sprite[i].name;
+                SubSectionBtn.transform.Find("Image").GetComponent<Image>().overrideSprite = ColorsOptionsList_Sprite[i];
+                SubSectionBtn.gameObject.name = ColorsOptionsList_Sprite[i].name;
+                SubSectionBtn.tag = "ColorListObjsBtn";
             }
 
             if(GameObject.Find("Buildings_parent/buildingSub_Parents/colorObjects"))
@@ -361,18 +494,55 @@ namespace controller
                 if (GameObject.Find("Buildings_parent/buildingSub_Parents/colorObjects").transform.childCount > 0)
                 {
                     string UsedColorName_strg = GameObject.Find("Buildings_parent/buildingSub_Parents/colorObjects").transform.GetChild(0).name;
-                    GameObject.Find("Drag_OBJ_Holder/Scroll View/Viewport/Content/colorsListParent").transform.Find(UsedColorName_strg).GetComponent<Button>().interactable = false;
+                    GameObject.Find("Drag_OBJ_Holder/Scroll View/Viewport/Content/parent 0/colorsListParent").transform.Find(UsedColorName_strg).GetComponent<Button>().interactable = false;
                 }
             }
             StartCoroutine(AnimateOption("colorsListParent", 0.01f)); // Show popup by sending a genric function name to animateoption
-            Debug.Log("show color option 2");
+        }
+        #endregion
+
+        #region ShowPollutionOption
+        public void ShowPollutionOption()
+        {
+            Debug.Log("showpollution");
+            PollutionOptionList_Sprite = Resources.LoadAll<Sprite>("Section_3_pollution_SubSection");
+            float PosMultiplier = PollutionOptionList_Sprite.Length;
+
+            if (PollutionListParent == null)
+            {
+                PollutionListParent = new GameObject();
+                PollutionListParent.gameObject.name = "PollutionListParent";
+                PollutionListParent.transform.SetParent(GameObject.Find("Drag_OBJ_Holder/Scroll View/Viewport/Content/parent 0").transform, false);
+                GameObject parentObj = GameObject.Find("Drag_OBJ_Holder/Scroll View/Viewport/Content/parent 0/" + usedfacilityname);
+                Debug.Log(parentObj.transform.localPosition + "," + parentObj.transform.position);
+                PollutionListParent.transform.localPosition = new Vector3(parentObj.transform.localPosition.x, parentObj.transform.localPosition.y, parentObj.transform.localPosition.z);
+            }
+
+            for (int i = 0; i < PollutionOptionList_Sprite.Length; i++)
+            {
+                SubSectionBtn = Instantiate(sections_btn, new Vector3(0, 90, 0), Quaternion.identity);
+                SubSectionBtn.transform.SetParent(GameObject.Find("Drag_OBJ_Holder/Scroll View/Viewport/Content/parent 0/PollutionListParent").transform, false);
+                SubSectionBtn.GetComponentInChildren<Text>().text = PollutionOptionList_Sprite[i].name;
+                SubSectionBtn.transform.Find("Image").GetComponent<Image>().overrideSprite = PollutionOptionList_Sprite[i];
+                SubSectionBtn.gameObject.name = PollutionOptionList_Sprite[i].name;
+                SubSectionBtn.tag = "PollutionListObjsBtn";
+            }
+
+            if (GameObject.Find("Buildings_parent/buildingSub_Parents/colorObjects"))
+            {
+                if (GameObject.Find("Buildings_parent/buildingSub_Parents/colorObjects").transform.childCount > 0)
+                {
+                    string UsedColorName_strg = GameObject.Find("Buildings_parent/buildingSub_Parents/colorObjects").transform.GetChild(0).name;
+                    GameObject.Find("Drag_OBJ_Holder/Scroll View/Viewport/Content/parent 0/colorsListParent").transform.Find(UsedColorName_strg).GetComponent<Button>().interactable = false;
+                }
+            }
+            StartCoroutine(AnimateOption("PollutionListParent", 0.01f)); // Show popup by sending a genric function name to animateoption
         }
         #endregion
 
         #region animateOption
         IEnumerator AnimateOption(string nameofOption, float wait)
         {
-            Debug.Log("AnimateOptionn 1");
             int e = 0;
             GameObject options = GameObject.Find(nameofOption);
             int sibblingIndex = options.transform.childCount;
@@ -395,7 +565,6 @@ namespace controller
                 options.transform.GetChild(j).localPosition = endPos;
                 yield return new WaitForSeconds(wait);
             }
-            Debug.Log("AnimateOptionn 2");
         }
         #endregion
     }
